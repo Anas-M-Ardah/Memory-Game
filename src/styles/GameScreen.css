@@ -1,0 +1,301 @@
+/* styles/GameScreen.css */
+.game-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Game Content */
+.game-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Header Layout */
+.game-header {
+  padding: 1rem;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.players-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Retro Theme */
+.game-screen.retro {
+  background-color: #2c2c2c;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.game-screen.retro .game-header {
+  background: #000;
+  border-bottom: 4px solid #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.game-screen.retro .timer {
+  background: #000;
+  padding: 0.5rem 1rem;
+  border: 2px solid #fff;
+  color: #fff;
+  text-align: center;
+}
+
+.game-screen.retro .timer-label {
+  font-size: 0.6rem;
+  color: #ff00ff;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.game-screen.retro .timer-value {
+  font-size: 1rem;
+}
+
+.game-screen.retro .player-score {
+  background: #000;
+  border: 2px solid #fff;
+  padding: 0.5rem;
+  color: #fff;
+  text-align: center;
+  min-width: 100px;
+}
+
+.game-screen.retro .player-score.current-player {
+  border-color: #ff00ff;
+  box-shadow: 0 0 10px #ff00ff;
+}
+
+.game-screen.retro .reset-button {
+  padding: 0.5rem 1rem;
+  font-family: 'Press Start 2P', cursive;
+  border: 2px solid #fff;
+  background-color: #000;
+  color: #ff0000;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.1s ease;
+  font-size: clamp(0.6rem, 2vw, 0.8rem);
+}
+
+.game-screen.retro .reset-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px #ff00ff;
+}
+
+.game-screen.retro .reset-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+/* Jungle Theme */
+.game-screen.jungle {
+  background-color: #1b4d2e;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.game-screen.jungle .game-header {
+  background: #2d6a4f;
+  border-bottom: 4px solid #95d5b2;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+}
+
+.game-screen.jungle .timer {
+  background: #1b4d2e;
+  padding: 0.5rem 1rem;
+  border: 2px solid #95d5b2;
+  border-radius: 10px;
+  color: #d8f3dc;
+  text-align: center;
+}
+
+.game-screen.jungle .timer-label {
+  font-size: 0.7rem;
+  color: #95d5b2;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.game-screen.jungle .timer-value {
+  font-size: 1.1rem;
+}
+
+.game-screen.jungle .player-score {
+  background: #1b4d2e;
+  border: 2px solid #95d5b2;
+  border-radius: 10px;
+  padding: 0.5rem;
+  color: #d8f3dc;
+  text-align: center;
+  min-width: 100px;
+}
+
+.game-screen.jungle .player-score.current-player {
+  border-color: #4CAF50;
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+  transform: scale(1.05);
+}
+
+.game-screen.jungle .reset-button {
+  padding: 0.5rem 1rem;
+  font-family: 'Comic Sans MS', cursive;
+  border: 2px solid #95d5b2;
+  background-color: #1b4d2e;
+  color: #ff6b6b;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
+  border-radius: 8px;
+}
+
+.game-screen.jungle .reset-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px #4CAF50;
+  background-color: #2d6a4f;
+}
+
+.game-screen.jungle .reset-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+/* Animation for current player */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.retro .current-player {
+  animation: pulse 2s infinite;
+}
+
+.jungle .current-player {
+  animation: pulse 1.5s infinite;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .header-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+  }
+
+  .timer, .reset-button {
+    justify-self: center;
+  }
+
+  .players-container {
+    order: 2;
+    width: 100%;
+  }
+
+  .game-header {
+    padding: 0.5rem;
+  }
+
+  .player-score {
+    flex: 1;
+    min-width: 80px;
+  }
+}
+
+/* Prevent text selection */
+.game-header {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Smooth transitions */
+.player-score {
+  transition: all 0.3s ease;
+}
+
+/* Optional: Add hover effect for player scores */
+.player-score:hover {
+  transform: translateY(-2px);
+}
+
+/* Ensure proper stacking context for animations */
+.player-score.current-player {
+  z-index: 1;
+}
+
+/* Header Layout */
+.game-header {
+  padding: 1rem;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 200px 1fr 200px; /* Fixed width for timer and reset */
+  align-items: center;
+  gap: 20px;
+}
+
+.timer {
+  justify-self: start; /* Align timer to the left */
+}
+
+.players-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 0 auto; /* Center the players container */
+}
+
+.reset-button {
+  justify-self: end; /* Align reset button to the right */
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .header-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+  }
+
+  .timer {
+    justify-self: center;
+  }
+
+  .reset-button {
+    justify-self: center;
+  }
+
+  .players-container {
+    order: 2;
+    width: 100%;
+  }
+
+  .game-header {
+    padding: 0.5rem;
+  }
+
+  .player-score {
+    flex: 1;
+    min-width: 80px;
+  }
+}

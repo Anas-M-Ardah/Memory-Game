@@ -1,0 +1,198 @@
+/* styles/GameStyles.css */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* styles/GameStyles.css */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Retro theme */
+.app.retro {
+  background-color: #2c2c2c;
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* Jungle theme */
+.app.jungle {
+  background-color: #1b4d2e;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.game-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.game-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Card Styles */
+.game-card {
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border: 4px solid #fff;
+  box-shadow: 
+    0 0 0 4px #1a1a1a,
+    0 0 0 8px #fff,
+    10px 10px 0px #000;
+  width: 100%;
+  max-width: 600px;
+}
+
+.game-title {
+  color: #fff;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 4px 4px #ff00ff;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  line-height: 1.4;
+}
+
+/* Button Styles */
+.start-button,
+.reset-button,
+.option-button {
+  padding: 0.8rem 1.5rem;
+  font-family: 'Press Start 2P', cursive;
+  border: 4px solid #fff;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.1s ease;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+.start-button,
+.reset-button {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+}
+
+.reset-button {
+  color: #ff0000;
+  margin-top: 1rem;
+}
+
+/* Player Selection Styles */
+.player-selection {
+  text-align: center;
+  width: 100%;
+}
+
+.player-selection h2 {
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: clamp(0.9rem, 3vw, 1.2rem);
+  text-shadow: 2px 2px #ff00ff;
+  line-height: 1.4;
+  padding: 0 10px;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* Hover Effects */
+@media (hover: hover) {
+  .start-button:hover,
+  .reset-button:hover,
+  .option-button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px #ff00ff;
+  }
+}
+
+.start-button:active,
+.reset-button:active,
+.option-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+/* Media Queries */
+@media screen and (max-width: 480px) {
+  .game-card {
+    padding: 1rem;
+    box-shadow: 
+      0 0 0 2px #1a1a1a,
+      0 0 0 4px #fff,
+      5px 5px 0px #000;
+  }
+
+  .game-title {
+    text-shadow: 2px 2px #ff00ff;
+    margin-bottom: 1.5rem;
+  }
+
+  .options-grid {
+    gap: 10px;
+  }
+
+  .start-button,
+  .reset-button,
+  .option-button {
+    padding: 0.6rem 1rem;
+    border-width: 2px;
+  }
+}
+
+/* Landscape Mode */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .game-container {
+    padding: 0.5rem;
+  }
+
+  .game-card {
+    padding: 1rem;
+  }
+
+  .game-title {
+    margin-bottom: 1rem;
+  }
+
+  .options-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 100%;
+  }
+}

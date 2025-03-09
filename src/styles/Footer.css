@@ -1,0 +1,92 @@
+/* styles/Footer.css */
+.game-footer {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.game-footer.retro {
+  background: #000;
+  border-top: 2px solid #fff;
+}
+
+.game-footer.jungle {
+  background: #2d6a4f;
+  border-top: 2px solid #95d5b2;
+}
+
+.theme-selector {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-label {
+  font-size: clamp(0.6rem, 2vw, 0.8rem);
+}
+
+.retro .theme-label {
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.jungle .theme-label {
+  color: #d8f3dc;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.theme-toggle-btn {
+  background: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.retro .theme-toggle-btn {
+  border: 2px solid #fff;
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.jungle .theme-toggle-btn {
+  border: 2px solid #95d5b2;
+  color: #d8f3dc;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-2px);
+}
+
+.retro .theme-toggle-btn:hover {
+  box-shadow: 0 2px #ff00ff;
+}
+
+.jungle .theme-toggle-btn:hover {
+  box-shadow: 0 2px #4CAF50;
+}
+
+.theme-toggle-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.theme-icon {
+  font-size: 1.2rem;
+}
+
+.theme-name {
+  font-size: clamp(0.6rem, 2vw, 0.8rem);
+}
+
+@media (max-width: 480px) {
+  .game-footer {
+    padding: 0.5rem;
+  }
+}

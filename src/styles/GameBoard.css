@@ -1,0 +1,46 @@
+/* styles/GameBoard.css */
+.game-board-container {
+  width: 100%;
+  max-width: min(80vh, 600px);
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.game-board {
+  display: grid;
+  gap: clamp(8px, 1.5vmin, 12px);
+  padding: clamp(10px, 2vmin, 20px);
+  aspect-ratio: 1;
+  width: 100%;
+}
+
+/* Retro Theme */
+.game-board.retro {
+  background: rgba(0, 0, 0, 0.3);
+  border: 4px solid #fff;
+  box-shadow: 
+    0 0 0 4px #000,
+    0 0 0 8px #fff,
+    10px 10px 0px #000;
+}
+
+/* Jungle Theme */
+.game-board.jungle {
+  background: rgba(45, 106, 79, 0.3);
+  border: 4px solid #95d5b2;
+  border-radius: 15px;
+  box-shadow: 
+    0 0 20px rgba(0, 0, 0, 0.2),
+    0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .game-board-container {
+    padding: 10px;
+  }
+  
+  .game-board {
+    gap: 8px;
+    padding: 10px;
+  }
+}

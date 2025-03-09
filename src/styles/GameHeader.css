@@ -1,0 +1,116 @@
+/* styles/GameHeader.css */
+.game-header {
+    width: 100%;
+    margin-bottom: 2rem;
+    font-family: 'Press Start 2P', cursive;
+  }
+  
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .timer {
+    background: #000;
+    padding: 0.5rem 1rem;
+    border: 2px solid #fff;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .timer-label {
+    font-size: 0.6rem;
+    color: #ff00ff;
+  }
+  
+  .timer-value {
+    font-size: 1rem;
+  }
+  
+  .reset-btn {
+    background: #000;
+    color: #ff0000;
+    border: 2px solid #fff;
+    padding: 0.5rem 1rem;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.1s ease;
+  }
+  
+  .reset-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px #ff00ff;
+  }
+  
+  .players-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .player-score {
+    background: #000;
+    border: 2px solid #fff;
+    padding: 0.5rem;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s ease;
+  }
+  
+  .current-player {
+    border-color: #ff00ff;
+    box-shadow: 0 0 10px #ff00ff;
+  }
+  
+  .player-label {
+    font-size: 0.6rem;
+    color: #ff00ff;
+  }
+  
+  .score-value {
+    font-size: 1rem;
+  }
+  
+  /* Media Queries */
+  @media screen and (max-width: 480px) {
+    .game-header {
+      margin-bottom: 1rem;
+    }
+  
+    .timer, .reset-btn, .player-score {
+      padding: 0.3rem 0.6rem;
+    }
+  
+    .timer-value, .score-value {
+      font-size: 0.8rem;
+    }
+  
+    .timer-label, .player-label {
+      font-size: 0.5rem;
+    }
+  
+    .players-container {
+      gap: 0.5rem;
+    }
+  }
+  
+  /* Animation for current player */
+  @keyframes pulse {
+    0% { border-color: #ff00ff; }
+    50% { border-color: #fff; }
+    100% { border-color: #ff00ff; }
+  }
+  
+  .current-player {
+    animation: pulse 2s infinite;
+  }

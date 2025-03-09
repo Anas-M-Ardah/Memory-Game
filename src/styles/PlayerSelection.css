@@ -1,0 +1,121 @@
+/* styles/PlayerSelection.css */
+.player-selection {
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Retro Theme */
+  .player-selection.retro h2 {
+    color: #fff;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    text-shadow: 2px 2px #ff00ff;
+    line-height: 1.4;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    font-family: 'Press Start 2P', cursive;
+  }
+  
+  .player-selection.retro .options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+  
+  .player-selection.retro .option-button {
+    padding: 15px 10px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    border: 4px solid #fff;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.1s ease;
+    width: 100%;
+  }
+  
+  /* Jungle Theme */
+  .player-selection.jungle h2 {
+    color: #d8f3dc;
+    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+    text-shadow: 2px 2px #1b4d2e;
+    line-height: 1.4;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    font-family: 'Comic Sans MS', cursive;
+  }
+  
+  .player-selection.jungle .options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+  
+  .player-selection.jungle .option-button {
+    padding: 15px 10px;
+    font-family: 'Comic Sans MS', cursive;
+    font-size: clamp(0.8rem, 2.2vw, 1.1rem);
+    border: 4px solid #95d5b2;
+    background-color: #1b4d2e;
+    color: #d8f3dc;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.1s ease;
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  /* Hover Effects */
+  @media (hover: hover) {
+    .player-selection.retro .option-button:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px #ff00ff;
+    }
+  
+    .player-selection.jungle .option-button:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px #4CAF50;
+      background-color: #2d6a4f;
+    }
+  }
+  
+  /* Active States */
+  .player-selection.retro .option-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+  
+  .player-selection.jungle .option-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+    background-color: #1b4d2e;
+  }
+  
+  /* Media Queries */
+  @media screen and (max-width: 480px) {
+    .options-grid {
+      gap: 10px;
+    }
+  
+    .option-button {
+      padding: 10px 5px;
+      border-width: 2px;
+    }
+  }
+  
+  /* Landscape Mode */
+  @media screen and (max-height: 500px) and (orientation: landscape) {
+    .options-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      max-width: 100%;
+    }
+  }
