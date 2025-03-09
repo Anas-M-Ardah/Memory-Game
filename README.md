@@ -2,7 +2,7 @@
 
 A classic memory card game built with React, featuring two distinct themes: Retro and Jungle. Test your memory by matching pairs of cards while enjoying different visual styles.
 
-![Game Screenshot](https://ibb.co/FkwMt45d) <!-- Add a screenshot of your game -->
+![Game Screenshot](https://i.ibb.co/KcqkHx28/screen3.png) 
 
 ## Features
 
