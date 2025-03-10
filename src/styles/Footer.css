@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   margin-top: auto;
+  position: relative;
 }
 
 .game-footer.retro {
@@ -22,6 +23,8 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  transform: rotate(0deg);
+  transition: transform 0.6s ease;
 }
 
 .theme-label {
@@ -89,4 +92,10 @@
   .game-footer {
     padding: 0.5rem;
   }
+}
+
+
+.game-footer.rotated .theme-selector {
+  /* Apply counter-rotation when the footer is flipped */
+  transform: rotate(180deg);
 }
