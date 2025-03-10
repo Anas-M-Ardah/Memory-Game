@@ -1,4 +1,5 @@
 // pages/GameScreen.js
+
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import GameHeader from '../components/GameHeader';
@@ -14,6 +15,7 @@ function GameScreen({ currentTheme }) {
 
   const [time, setTime] = useState(0);
   const [showVictoryModal, setShowVictoryModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // Detect mobile/tablet devices
   const [gameState, setGameState] = useState({
     scores: new Array(Number(players)).fill(0),
     currentPlayer: 0,
@@ -22,12 +24,21 @@ function GameScreen({ currentTheme }) {
     isGameStarted: false
   });
 
+  // Detect mobile/tablet devices
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1024);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Redirect if no game config
   useEffect(() => {
     if (!players || !gridSize) {
       navigate('/');
     } else {
-      // Start the game after a short delay
       const timer = setTimeout(() => {
         setGameState(prev => ({ ...prev, isGameStarted: true }));
       }, 1000);
@@ -38,13 +49,11 @@ function GameScreen({ currentTheme }) {
   // Timer effect
   useEffect(() => {
     let intervalId;
-    
     if (gameState.isGameStarted) {
       intervalId = setInterval(() => {
         setTime(prevTime => prevTime + 1);
       }, 1000);
     }
-
     return () => {
       if (intervalId) {
         clearInterval(intervalId);
@@ -107,13 +116,21 @@ function GameScreen({ currentTheme }) {
       .filter(player => player.score === maxScore);
   };
 
+  // Compute the CSS style for the game screen.
+  // Only apply rotation (0deg for currentPlayer even, 180deg for odd) if:
+  // 1. The device is mobile/tablet.
+  // 2. Multiplayer mode is active.
+  const screenStyle = (isMobile && players > 1)
+    ? { transform: (gameState.currentPlayer % 2 === 0 ? 'rotate(0deg)' : 'rotate(180deg)'), transition: 'transform 0.6s ease' }
+    : {};
+
   // Loading state
   if (!players || !gridSize) {
     return null; // or a loading spinner
   }
 
   return (
-    <div className={`game-screen ${currentTheme === THEMES.RETRO ? 'retro' : 'jungle'}`}>
+    <div className={`game-screen ${currentTheme === THEMES.RETRO ? 'retro' : 'jungle'}`} style={screenStyle}>
       <GameHeader 
         time={formatTime(time)}
         players={gameState.scores}
